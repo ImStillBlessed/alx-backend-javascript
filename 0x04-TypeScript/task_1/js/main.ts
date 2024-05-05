@@ -10,9 +10,9 @@ interface Teacher {
 class TeacherImpl implements Teacher {
   readonly firstName: string;
   readonly lastName: string;
-  fullTimeEmployee: boolean = true; // Default value for fullTimeEmployee
+  fullTimeEmployee: boolean = true;
   yearsOfExperience?: number;
-  readonly location: string; // Readonly ensures it's always defined
+  readonly location: string;
 
   constructor(
     firstName: string,
@@ -27,7 +27,15 @@ class TeacherImpl implements Teacher {
     this.fullTimeEmployee = fullTimeEmployee;
     this.yearsOfExperience = yearsOfExperience;
     this.location = location;
-
-    // Assign custom attribute
   }
 }
+
+const teacher3: Teacher = {
+  firstName: 'John',
+  fullTimeEmployee: false,
+  lastName: 'Doe',
+  location: 'London',
+  contract: false,
+};
+
+console.log(teacher3);

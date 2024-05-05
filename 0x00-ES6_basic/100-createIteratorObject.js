@@ -5,23 +5,21 @@ export default function createIteratorObject(report) {
   let currentEmployeeIndex = 0;
 
   return {
-    [Symbol.iterator]: function () {
+    [Symbol.iterator]: function name() {
       return {
-        next: function () {
+        next: function name2() {
           if (currentDeptIndex < departments.length) {
             const currentDepartment = departments[currentDeptIndex];
             if (currentEmployeeIndex < currentDepartment.length) {
               const employee = currentDepartment[currentEmployeeIndex];
-              currentEmployeeIndex++;
+              currentEmployeeIndex += 1;
               return { value: employee, done: false };
-            } else {
-              currentDeptIndex++;
-              currentEmployeeIndex = 0;
-              return this.next();
             }
-          } else {
-            return { done: true };
+            currentDeptIndex += 1;
+            currentEmployeeIndex = 0;
+            return this.next();
           }
+          return { done: true };
         },
       };
     },
