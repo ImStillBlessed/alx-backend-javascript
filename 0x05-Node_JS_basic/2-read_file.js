@@ -3,14 +3,12 @@ const fs = require('fs');
 function countStudents(path) {
   try {
     const data = fs.readFileSync(path, 'utf8');
-    const lines = data.split('\n');
+    const lines = data.split('\n').filter((line) => line.trim() !== '');
     const studentGroups = {};
     let totalStudents = 0;
 
     for (let i = 1; i < lines.length; i++) {
-      const [firstname, , , field] = lines[i]
-        .split(',')
-        .map((value) => value.trim());
+      const [firstname, , , field] = lines[i].split(',');
 
       if (!studentGroups[field]) {
         studentGroups[field] = [];
