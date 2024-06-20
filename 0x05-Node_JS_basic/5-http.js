@@ -35,7 +35,7 @@ const countStudents = (filePath) =>
   });
 
 const app = http.createServer((req, res) => {
-  const { url } = req.url;
+  const url = req.url;
   if (url === '/') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Hello Holberton School!');

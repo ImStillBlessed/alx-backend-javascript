@@ -1,8 +1,8 @@
 const express = require('express');
 const fs = require('fs');
 
-const countStudents = (filePath) => {
-  return new Promise((resolve, reject) => {
+const countStudents = (filePath) =>
+  new Promise((resolve, reject) => {
     fs.readFile(filePath, 'utf8', (err, data) => {
       if (err) {
         reject(new Error('Cannot load the database'));
@@ -13,7 +13,7 @@ const countStudents = (filePath) => {
       const studentGroups = {};
       let totalStudents = 0;
 
-      for (let i = 1; i < lines.length; i++) {
+      for (let i = 1; i < lines.length; i += 1) {
         const [firstname, , , field] = lines[i]
           .split(',')
           .map((value) => value.trim());
@@ -21,7 +21,7 @@ const countStudents = (filePath) => {
           studentGroups[field] = [];
         }
         studentGroups[field].push(firstname);
-        totalStudents++;
+        totalStudents += 1;
       }
 
       let result = `Number of students: ${totalStudents}\n`;
@@ -33,7 +33,6 @@ const countStudents = (filePath) => {
       resolve(result.trim());
     });
   });
-};
 
 const app = express();
 const port = 1245;
