@@ -7,7 +7,7 @@ function countStudents(path) {
     const studentGroups = {};
     let totalStudents = 0;
 
-    for (let i = 1; i < lines.length; i++) {
+    for (let i = 1; i < lines.length; i += 1) {
       const [firstname, , , field] = lines[i].split(',');
 
       if (!studentGroups[field]) {
@@ -15,15 +15,14 @@ function countStudents(path) {
       }
 
       studentGroups[field].push(firstname);
-      totalStudents++;
+      totalStudents += 1;
     }
 
     console.log(`Number of students: ${totalStudents}`);
     for (const [field, students] of Object.entries(studentGroups)) {
       console.log(
-        `Number of students in ${field}: ${
-          students.length
-        }. List: ${students.join(', ')}`
+        `Number of students in ${field}: ${students.length
+        }. List: ${students.join(', ')}`,
       );
     }
   } catch (error) {
