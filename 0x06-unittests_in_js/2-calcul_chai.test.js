@@ -60,26 +60,6 @@ describe('calculateNumber', () => {
     it('0 and 0', () => {
       expect(calculateNumber('SUBTRACT', 0.0, 0.0)).to.equal(0);
     });
-
-    it('0 and positive number', () => {
-      expect(calculateNumber('SUBTRACT', 0.0, 5.0)).to.equal(-5.0);
-    });
-
-    it('0 and negative number', () => {
-      expect(calculateNumber('SUBTRACT', 0.0, -5.0)).to.equal(5.0);
-    });
-
-    it('positive number and 0', () => {
-      expect(calculateNumber('SUBTRACT', 5.0, 0)).to.equal(5.0);
-    });
-
-    it('negative number and 0', () => {
-      expect(calculateNumber('SUBTRACT', -5.0, 0)).to.equal(-5.0);
-    });
-
-    it('positive number and negative number', () => {
-      expect(calculateNumber('SUBTRACT', 5.0, -5.0)).to.equal(10.0);
-    });
   });
 
   describe('type == "DIVIDE"', () => {

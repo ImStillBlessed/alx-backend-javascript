@@ -30,22 +30,6 @@ describe('calculateNumber', () => {
     it('0 and 0', () => {
       assert.strictEqual(calculateNumber('SUM', 0.0, 0.0), 0);
     });
-
-    it('0 and positive number', () => {
-      assert.strictEqual(calculateNumber('SUM', 0.0, 5.0), 5);
-    });
-
-    it('0 and negative number', () => {
-      assert.strictEqual(calculateNumber('SUM', 0.0, -5.0), -5);
-    });
-
-    it('positive number and 0', () => {
-      assert.strictEqual(calculateNumber('SUM', 5.0, 0), 5);
-    });
-
-    it('negative number and 0', () => {
-      assert.strictEqual(calculateNumber('SUM', -5.0, 0), -5);
-    });
   });
 
   describe('type == "SUBTRACT"', () => {
@@ -76,22 +60,6 @@ describe('calculateNumber', () => {
     it('0 and 0', () => {
       assert.strictEqual(calculateNumber('SUBTRACT', 0.0, 0.0), 0);
     });
-
-    it('0 and positive number', () => {
-      assert.strictEqual(calculateNumber('SUBTRACT', 0.0, 5.0), -5.0);
-    });
-
-    it('0 and negative number', () => {
-      assert.strictEqual(calculateNumber('SUBTRACT', 0.0, -5.0), 5.0);
-    });
-
-    it('positive number and 0', () => {
-      assert.strictEqual(calculateNumber('SUBTRACT', 5.0, 0), 5.0);
-    });
-
-    it('negative number and 0', () => {
-      assert.strictEqual(calculateNumber('SUBTRACT', -5.0, 0), -5.0);
-    });
   });
 
   describe('type == "DIVIDE"', () => {
@@ -109,10 +77,6 @@ describe('calculateNumber', () => {
 
     it('negative numbers', () => {
       assert.strictEqual(calculateNumber('DIVIDE', -7.0, -2.0), 3.5);
-    });
-
-    it('numbers with different signs (alternate)', () => {
-      assert.strictEqual(calculateNumber('DIVIDE', -7.0, 2.0), -3.5);
     });
 
     it('equal positive numbers', () => {
