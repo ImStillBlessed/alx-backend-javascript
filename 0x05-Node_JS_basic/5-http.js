@@ -1,8 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 
-const countStudents = (filePath) =>
-  new Promise((resolve, reject) => {
+const countStudents = (filePath) => new Promise((resolve, reject) => {
     fs.readFile(filePath, 'utf8', (err, data) => {
       if (err) {
         reject(new Error('Cannot load the database'));
@@ -35,7 +34,7 @@ const countStudents = (filePath) =>
   });
 
 const app = http.createServer((req, res) => {
-  const url = req.url;
+  const {url} = req.url;
   if (url === '/') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Hello Holberton School!');
