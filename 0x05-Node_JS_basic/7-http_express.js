@@ -34,22 +34,27 @@ const countStudents = (filePath) => new Promise((resolve, reject) => {
 
 const app = express();
 const port = 1245;
-const host = 'localhost';
 
 app.get('/', (req, res) => {
+  res.set('Content-Type', 'text/plain');
   res.send('Hello Holberton School!');
 });
 
 app.get('/students', (req, res) => {
-  countStudents('database.csv')
+  const databasePath = process.argv[2];
+  countStudents(databasePath)
     .then((data) => {
+      res.set('Content-Type', 'text/plain');
       res.send(`This is the list of our students\n${data}`);
     })
     .catch((err) => {
+      res.status(500).set('Content-Type', 'text/plain');
       res.send(`This is the list of our students\n${err.message}`);
     });
 });
 
-app.listen(port, host);
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}/`);
+});
 
 module.exports = app;
