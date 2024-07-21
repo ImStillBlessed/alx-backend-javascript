@@ -1,6 +1,7 @@
 class AppController {
-  @staticmethod
-  getHomepage(req, res) {
+  static getHomepage(req, res) {
     res.send('Hello Holberton School!');
   }
 }
+
+export default AppController;
