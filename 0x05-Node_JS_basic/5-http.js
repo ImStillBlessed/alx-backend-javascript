@@ -25,8 +25,7 @@ const countStudents = (filePath) => new Promise((resolve, reject) => {
 
     let result = `Number of students: ${totalStudents}\n`;
     for (const [field, students] of Object.entries(studentGroups)) {
-      result += `Number of students in ${field}: ${students.length
-        }. List: ${students.join(', ')}\n`;
+      result += `Number of students in ${field}: ${students.length}. List: ${students.join(', ')}\n`;
     }
     resolve(result.trim());
   });
