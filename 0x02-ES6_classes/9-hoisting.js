@@ -9,7 +9,7 @@ export class HolbertonClass {
   }
 
   set year(year) {
-    this._year = year
+    this._year = year;
   }
 
   get location() {
@@ -17,7 +17,7 @@ export class HolbertonClass {
   }
 
   set location(location) {
-    this._location = location
+    this._location = location;
   }
 }
 
