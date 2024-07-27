@@ -3,7 +3,7 @@ import readDatabase from '../utils.js';
 class StudentsController {
   static async getAllStudents(req, res) {
     try {
-      const filePath = process.argv[2];
+      const filePath = process.argv[2] || './database.csv';
       const studentGroups = await readDatabase(filePath);
 
       let totalStudents = 0;
@@ -32,7 +32,7 @@ class StudentsController {
         return;
       }
 
-      const filePath = process.argv[2];
+      const filePath = process.argv[2] || './database.csv';
       const studentGroups = await readDatabase(filePath);
       const students = studentGroups[major];
 
