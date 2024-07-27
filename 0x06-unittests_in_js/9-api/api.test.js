@@ -33,4 +33,26 @@ describe('API integration test', () => {
       done();
     });
   });
+
+  it('GET /cart/:id returns 404 response for empty :id', (done) => {
+    request.get(`${API_URL}/cart/`, (_err, res, _body) => {
+      expect(res.statusCode).to.be.equal(404);
+      done();
+    });
+  });
+
+  it('GET /cart/:id returns 200 response for large numeric values in :id', (done) => {
+    request.get(`${API_URL}/cart/1234567890123456`, (_err, res, body) => {
+      expect(res.statusCode).to.be.equal(200);
+      expect(body).to.be.equal('Payment methods for cart 1234567890123456');
+      done();
+    });
+  });
+
+  it('GET /cart/:id returns 404 response for special characters in :id', (done) => {
+    request.get(`${API_URL}/cart/!@#$%^&*()`, (_err, res, _body) => {
+      expect(res.statusCode).to.be.equal(404);
+      done();
+    });
+  });
 });

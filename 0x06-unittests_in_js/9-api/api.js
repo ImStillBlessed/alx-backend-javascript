@@ -11,7 +11,11 @@ app.get('/cart/:id', (req, res) => {
     res.status(404).end();
   } else {
     const id = parseInt(req.params.id);
-    res.send(`Payment methods for cart ${id}`);
+    if (id < 0) {
+      res.status(404).end();
+    } else {
+      res.send(`Payment methods for cart ${id}`);
+    }
   }
 });
 
