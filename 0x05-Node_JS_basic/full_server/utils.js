@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 const readDatabase = (dataPath) => new Promise((resolve, reject) => {
-  if (!dataPath) {
+  if (!dataPath || dataPath.length < 1) {
     reject(new Error('Cannot load the database'));
   }
   if (dataPath) {
